@@ -59,7 +59,6 @@ const Editor: React.FC = () => {
       }
     }))
     setDeckHasChanged(true);
-
   }
 
   const handleEditCardBack = (index: number, e: any) => {
@@ -71,7 +70,6 @@ const Editor: React.FC = () => {
       }
     }))
     setDeckHasChanged(true);
-
   }
 
   const handleDeleteCard = (index: number) => {
@@ -125,7 +123,6 @@ const Editor: React.FC = () => {
 
   const handleEditDeck = () => {
     setIsEditing(!isEditing);
-
   }
 
   const handleDeckNameChange = (e: any) => {
@@ -264,7 +261,6 @@ const Editor: React.FC = () => {
                       </>
                     )}
                   </>
-
                 )}
               </>
               {!isOwner && !isNewDeck && (

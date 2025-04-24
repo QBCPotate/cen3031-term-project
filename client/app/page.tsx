@@ -12,6 +12,7 @@ import { Tables } from "@/types/database.types";
 import { GamesSection } from "@/components/GamesSection";
 import ToastCall from "@/components/Toast"
 
+
 export default function Home() {
 
   const router = useRouter();
