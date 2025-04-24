@@ -46,6 +46,7 @@ export type Database = {
           current_card_index: number
           deck: string | null
           id: string
+          name: string | null
           score_data: Json | null
           state: Json
           winner: string | null
@@ -56,6 +57,7 @@ export type Database = {
           current_card_index?: number
           deck?: string | null
           id?: string
+          name?: string | null
           score_data?: Json | null
           state?: Json
           winner?: string | null
@@ -66,6 +68,7 @@ export type Database = {
           current_card_index?: number
           deck?: string | null
           id?: string
+          name?: string | null
           score_data?: Json | null
           state?: Json
           winner?: string | null

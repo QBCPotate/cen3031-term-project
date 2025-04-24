@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { DecksSection } from "@/components/DecksSection";
 import { useQueryContext } from "@/contexts/QueryProvider";
 import { Tables } from "@/types/database.types";
+import { GamesSection } from "@/components/GamesSection";
+import ToastCall from "@/components/Toast"
 
 
 export default function Home() {
@@ -19,6 +21,7 @@ export default function Home() {
 
   const [userDecks, setUserDecks] = useState<Tables<"decks">[] | undefined>(undefined);
   const [recentDecks, setRecentDecks] = useState<Tables<"decks">[] | undefined>(undefined);
+  const [currentGames, setCurrentGames] = useState<Tables<"games">[] | undefined>(undefined);
 
   useEffect(() => {
     session?.getSessionData();
@@ -33,6 +36,9 @@ export default function Home() {
       });
       query?.getRecentPublicDecks().then((decks: any) => {
         setRecentDecks(decks);
+      });
+      query?.getCurrentGames().then((games: any) => {
+        setCurrentGames(games);
       });
     };
 
@@ -65,16 +71,16 @@ export default function Home() {
 
         {/* Column 1 */}
         <div className="flex-1 bg-gray-100 p-4 rounded-lg">
-          <h2 className="text-xl font-bold my-2">Current Games</h2>
+          <h2 className="text-xl font-bold mb-4">Current Games</h2>
           <Card
             title="New Game"
             details=""
             onClick={() => router.push('/creategame')}
             isMenuOpt
           />
-          <div className="space-y-3">
-            {/*<Card title="Math Basics" details="50 cards" />*/}
-          </div>
+          <div className="my-1" />
+          {/*<Card title="Math Basics" details="50 cards" />*/}
+          <GamesSection games={currentGames} />
         </div>
 
         {/* Column 2 */}
